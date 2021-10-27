@@ -17,13 +17,12 @@ let myScore;
 let frameNo;
 let interval;
 let isMouseDown;
+let isMouseUp;
 
 function startGame() {
-    
     gamePiece.gravity = 0.05;
     myScore = new Component("30px", "Consolas", "black", 280, 40, "text", ctx, canvas); // puntaje
     startGameArea();
-
 
 }
  //-----------------------------------------
@@ -70,7 +69,7 @@ function startGame() {
 function startGameArea() {
     document.body.insertBefore(canvas, document.body.childNodes[0]);
     frameNo = 0;
-    interval = setInterval(updateGameArea, 20);
+    interval = setInterval(updateGameArea, 10);
 }
 
 function clearGameArea() {
@@ -89,14 +88,19 @@ function accelerate(n) {
 }
 
 function onMouseDown(e){
+    isMouseUp = false;
     isMouseDown = true;
+    console.log(isMouseDown);
     accelerate(e)
 }
 
 function onMouseUp(e){
     isMouseDown = false;
+    isMouseUp = true;
+    console.log(isMouseUp);
     accelerate(e)
+
 }
 
-btnUpSwim.addEventListener("mouseup", onMouseUp(0.05), false);
-btnUpSwim.addEventListener("mousedown", onMouseDown(-0.2), false);
+btnUpSwim.addEventListener('mouseup', onMouseUp(0.05), false);
+btnUpSwim.addEventListener('mousedown', onMouseDown(-0.2), false);

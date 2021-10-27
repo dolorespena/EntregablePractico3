@@ -1,4 +1,25 @@
-canvas {
-    border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
+html,body {
+    margin:0;
+    
+  }
+#water{
+    background-image: url(../img/fondo_superior.png);
+    background-repeat: repeat-x;
+    animation: movebg 9s linear infinite;
+    margin-top: 0px;
+
 }
+
+#bottonSea{
+    background-image: url(../img/fondo_Inferior.png);
+    background-repeat: repeat-x;
+    animation: movebg linear 6s infinite ;
+    position:relative;
+    margin-bottom: 0px;
+    
+}
+
+@keyframes movebg {
+    0% { background-position-x:0px} 
+    100% { background-position-x:709px }
+  }
